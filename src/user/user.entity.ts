@@ -1,8 +1,12 @@
 import { IsNotEmpty } from 'class-validator';
+import { NewFeed } from 'src/newfeed/newfeed.entity';
+import { Photo } from 'src/photo/photo.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -33,4 +37,10 @@ export class User {
   @Column({ name: 'register_by', nullable: false }) // facebook, google, apple
   @IsNotEmpty({ message: 'Can not null' })
   registerBy: string;
+
+  @OneToMany((type) => NewFeed, (newfeed) => newfeed.user)
+  newfeeds: NewFeed[];
+
+  @OneToMany((type) => Photo, (photo) => photo.user)
+  photos: Photo[];
 }

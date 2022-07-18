@@ -36,6 +36,9 @@ export class AuthenticationStrategy extends PassportStrategy(Strategy, 'jwt') {
    * @memberof Authentication User
    */
   public async validate(req, payload: any, callback) {
-    return {}; // make laidation paloady and reponse
+    return {
+      userId: payload.sub,
+      username: payload.username,
+    }; // make laidation paloady and reponse
   }
 }

@@ -31,6 +31,9 @@ export class Auth {
   @Column({ name: 'devie_id', nullable: true })
   deviceId: string;
 
+  @Column({ name: 'os', nullable: true })
+  os: string;
+
   @Column({ name: 'ban_dit', nullable: true })
   banDit: boolean;
 

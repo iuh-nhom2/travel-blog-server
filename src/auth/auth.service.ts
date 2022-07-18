@@ -18,7 +18,6 @@ export class AuthService {
     const { userName, password, typeDevice, deviceId } = conditionLogin;
 
     const userExit = await this.userService.findOne(userName);
-
     if (!userExit) {
       throw new HttpException('User does not exit', 400);
     }

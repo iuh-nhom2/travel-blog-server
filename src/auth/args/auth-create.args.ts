@@ -1,11 +1,6 @@
 import { ArgsType, Field } from '@nestjs/graphql';
-import {
-  IsNotEmpty,
-  MaxLength,
-  MinLength,
-  IsOptional,
-  IsEmail,
-} from 'class-validator';
+import { IsNotEmpty } from 'class-validator';
+import { GraphQLInputObjectType, GraphQLNonNull, GraphQLString } from 'graphql';
 
 @ArgsType()
 export class CreateAuthArgs {
@@ -26,6 +21,31 @@ export class CreateAuthArgs {
   readonly typeDevice: string;
 
   @Field((type) => String)
-  @IsNotEmpty()
   readonly deviceId: string;
+
+  @Field((type) => String)
+  @IsNotEmpty()
+  readonly os: string;
 }
+
+export const CreateInputObjectLogin = new GraphQLInputObjectType({
+  name: 'CreateAuthArgs',
+  description: 'Input Login',
+  fields: () => ({
+    userName: {
+      type: new GraphQLNonNull(GraphQLString),
+    },
+    password: {
+      type: new GraphQLNonNull(GraphQLString),
+    },
+    typeDevice: {
+      type: new GraphQLNonNull(GraphQLString),
+    },
+    deviceId: {
+      type: GraphQLString,
+    },
+    os: {
+      type: GraphQLString,
+    },
+  }),
+});

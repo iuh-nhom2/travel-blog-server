@@ -11,7 +11,7 @@ import { join } from 'path';
       debug: true,
       playground: true,
       installSubscriptionHandlers: true,
-      cors: false,
+      cors: true,
       resolverValidationOptions: {
         requireResolversForResolveType: 'ignore',
       },

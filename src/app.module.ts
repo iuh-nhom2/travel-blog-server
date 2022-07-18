@@ -7,6 +7,9 @@ import { GraphqlModule } from './graphql/graphql.module';
 import { UserModule } from './user/user.module';
 import { DatabaseModule } from './database/database.module';
 import { AuthModule } from './auth/auth.module';
+import { NewfeedModule } from './newfeed/newfeed.module';
+import { NewfeedDetailModule } from './newfeed-detail/newfeed-detail.module';
+import { PhotoModule } from './photo/photo.module';
 
 @Module({
   imports: [
@@ -18,6 +21,9 @@ import { AuthModule } from './auth/auth.module';
     UserModule,
     DatabaseModule,
     AuthModule,
+    NewfeedModule,
+    NewfeedDetailModule,
+    PhotoModule,
   ],
   controllers: [AppController],
   providers: [AppService],

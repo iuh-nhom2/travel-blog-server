@@ -21,6 +21,9 @@ export class AuthDTO {
   deviceId: string;
 
   @Field({ nullable: true })
+  os: string;
+
+  @Field({ nullable: true })
   banDit: boolean;
 
   @Field({ nullable: true })
@@ -28,4 +31,16 @@ export class AuthDTO {
 
   @Field({ nullable: true })
   readonly updatedAt?: Date;
+}
+
+@ObjectType()
+export class ResponseAuth {
+  @Field({ nullable: false })
+  isSuccess: boolean;
+  @Field({ nullable: true })
+  message: string;
+  @Field({ nullable: true })
+  statusCode: string;
+  @Field({ nullable: true })
+  readonly auth?: AuthDTO;
 }
